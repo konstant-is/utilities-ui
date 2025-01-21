@@ -1,5 +1,8 @@
 {
   "name": "@konstant/utilities-ui",
+  "description": "Common ui utilities",
+  "version": "0.0.0",
+  "type": "module",
   "files": [
     "dist"
   ],

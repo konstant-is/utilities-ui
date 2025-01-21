@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/getPayloadReference.ts"],"sourcesContent":["export function getPayloadReference<T>(ref: T | string | null | undefined) {\n  if (typeof ref === 'string') {\n    return null\n  }\n\n  return ref as T\n}\n"],"names":["getPayloadReference","ref"],"mappings":"AAAA,OAAO,SAASA,oBAAuBC,GAAkC;IACvE,IAAI,OAAOA,QAAQ,UAAU;QAC3B,OAAO;IACT;IAEA,OAAOA;AACT"}

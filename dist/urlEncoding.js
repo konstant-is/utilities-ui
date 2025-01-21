@@ -8,13 +8,11 @@
  * // Decoding an array of URL-encoded strings
  * decodeUrl(["Hello%20World", "How%27s%20it%20going"]);
  * // Output: ["Hello World", "How's it going"]
- */
-export const decodeUrl = (url: string[]): string[] => {
-  // Use the map function to iterate over each string in the array
-  // and apply the decodeURIComponent function to decode the string.
-  return url.map((s) => decodeURIComponent(s))
-}
-
+ */ export const decodeUrl = (url)=>{
+    // Use the map function to iterate over each string in the array
+    // and apply the decodeURIComponent function to decode the string.
+    return url.map((s)=>decodeURIComponent(s));
+};
 /**
  * Encodes a single string for use in a URL.
  *
@@ -25,8 +23,9 @@ export const decodeUrl = (url: string[]): string[] => {
  * // Encoding a string for use in a URL
  * encodeUrl("Hello World");
  * // Output: "Hello%20World"
- */
-export const encodeUrl = (url: string): string => {
-  // Encode a single string
-  return encodeURIComponent(url)
-}
+ */ export const encodeUrl = (url)=>{
+    // Encode a single string
+    return encodeURIComponent(url);
+};
+
+//# sourceMappingURL=urlEncoding.js.map

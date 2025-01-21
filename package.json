@@ -1,13 +1,13 @@
 {
   "name": "@konstant/utilities-ui",
   "description": "Common ui utilities",
-  "version": "0.0.3",
+  "version": "0.0.2",
   "type": "module",
   "exports": {
     ".": {
-      "import": "./src/index.ts",
-      "types": "./src/index.ts",
-      "default": "./src/index.ts"
+      "import": "./dist/index.ts",
+      "types": "./dist/index.ts",
+      "default": "./dist/index.ts"
     }
   },
   "main": "./dist/index.js",
@@ -28,31 +28,5 @@
     "date-fns": "^4.1.0",
     "qs-esm": "^7.0.2",
     "slugify": "^1.6.6"
-  },
-  "devDependencies": {
-    "@eslint/eslintrc": "^3.2.0",
-    "@swc-node/register": "1.10.9",
-    "@swc/cli": "0.6.0",
-    "@types/node": "^22.5.4",
-    "child_process": "^1.0.2",
-    "copyfiles": "2.4.1",
-    "cross-env": "^7.0.3",
-    "eslint": "^9.16.0",
-    "eslint-config-next": "15.1.5",
-    "fs": "0.0.1-security",
-    "prettier": "^3.4.2",
-    "rimraf": "^6.0.1",
-    "semver": "^7.6.3",
-    "sharp": "0.33.5",
-    "sort-package-json": "^2.10.0",
-    "tsup": "^8.3.5",
-    "typescript": "latest",
-    "url": "^0.11.4"
-  },
-  "engines": {
-    "node": "^18.20.2 || >=20.9.0"
-  },
-  "peerDependencies": {
-    "next": "^15.1.5"
   }
 }

@@ -1,7 +1,7 @@
 import { defineConfig } from 'tsup'
 
 export default defineConfig(() => ({
-  entry: ['src/index.ts', 'src/canUseDOM.ts'], // Include all necessary entry points
+  entry: ['src/index.ts', 'src/date/index.ts'], // Include all necessary entry points
   outDir: 'dist', // Output directory
   format: ['cjs', 'esm'], // Build both CommonJS and ESM
   sourcemap: true, // Generate sourcemaps

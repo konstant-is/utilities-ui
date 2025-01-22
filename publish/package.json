@@ -8,6 +8,11 @@
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
+    },
+    "./date": {
+      "import": "./dist/date/index.js",
+      "types": "./dist/date/index.d.ts",
+      "default": "./dist/date/index.js"
     }
   },
   "main": "./dist/index.js",
@@ -24,8 +29,11 @@
     "ci:version": "node scripts/ci-version.js",
     "tag": "node scripts/tag.js"
   },
+  "peerDependencies": {
+    "next": "^15",
+    "date-fns": "^4"
+  },
   "dependencies": {
-    "date-fns": "^4.1.0",
     "qs-esm": "^7.0.2",
     "slugify": "^1.6.6"
   }

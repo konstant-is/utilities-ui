@@ -1,13 +1,13 @@
 {
   "name": "@konstant/utilities-ui",
   "description": "Common ui utilities",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/index.ts",
-      "types": "./dist/index.ts",
-      "default": "./dist/index.ts"
+      "import": "./dist/exports/client/index.js",
+      "types": "./dist/exports/client/index.d.ts",
+      "default": "./dist/exports/client/index.js"
     }
   },
   "main": "./dist/index.js",

@@ -5,9 +5,9 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/exports/client/index.js",
-      "types": "./dist/exports/client/index.d.ts",
-      "default": "./dist/exports/client/index.js"
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
     }
   },
   "main": "./dist/index.js",

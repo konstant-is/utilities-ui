@@ -7,5 +7,5 @@ export default defineConfig(() => ({
   sourcemap: true, // Generate sourcemaps
   dts: true, // Generate declaration files
   clean: true, // Clean the output directory before building
-  external: ['react'], // Mark React as external
+  external: ['react', 'next', 'react-dom', 'date-fns'], // Mark React as external
 }))

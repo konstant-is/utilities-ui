@@ -1,7 +1,5 @@
-// @ts-nocheck
-
 // Utility type to extract keys that are strings from a union type
-type ExtractKeys<T> = Extract<T, string>
+type ExtractKeys<T> = T extends string ? T : never
 
 /**
  * Creates an object where each key maps to its own name as a string.

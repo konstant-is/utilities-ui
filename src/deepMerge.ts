@@ -1,31 +1,51 @@
-// @ts-nocheck
-import { isObject } from './isObject.js'
+import deepMerge from 'deepmerge'
+
+import { isPlainObject } from './isPlainObject.js'
+
+export { deepMerge }
+/**
+ * Fully-featured deepMerge.
+ *
+ * Array handling: Arrays in the target object are combined with the source object's arrays.
+ */
+export function deepMergeWithCombinedArrays<T extends object>(
+  obj1: object,
+  obj2: object,
+  options: deepMerge.Options = {},
+): T {
+  return deepMerge<T>(obj1, obj2, {
+    arrayMerge: (target, source, options) => {
+      const destination = target.slice()
+
+      source.forEach((item, index) => {
+        if (typeof destination[index] === 'undefined') {
+          destination[index] = options?.cloneUnlessOtherwiseSpecified(item, options)
+        } else if (options?.isMergeableObject(item)) {
+          destination[index] = deepMerge(target[index], item, options)
+        } else if (target.indexOf(item) === -1) {
+          destination.push(item)
+        }
+      })
+      return destination
+    },
+    ...options,
+  })
+}
 
 /**
- * Performs a deep merge of two objects.
- * If both properties are objects, they are recursively merged.
- * Primitive values in the source object overwrite those in the target object.
- * @param target - The object to be updated.
- * @param source - The object to merge into the target.
- * @returns The merged object.
+ * Fully-featured deepMerge.
+ *
+ * Array handling: Arrays in the target object are replaced by the source object's arrays.
  */
-export function deepMerge<T, R>(target: T, source: R): T & R {
-  const output = { ...target } as T & R // Create a shallow copy of the target
-  if (isObject(target) && isObject(source)) {
-    Object.keys(source).forEach((key) => {
-      const sourceValue = (source as Record<string, unknown>)[key]
-      if (isObject(sourceValue)) {
-        // If the source value is an object, recursively merge
-        if (!(key in target)) {
-          Object.assign(output, { [key]: sourceValue }) // Copy source value if not in target
-        } else {
-          output[key] = deepMerge((target as Record<string, unknown>)[key], sourceValue)
-        }
-      } else {
-        // Overwrite with primitive values from source
-        Object.assign(output, { [key]: sourceValue })
-      }
-    })
-  }
-  return output
+export function deepMergeWithSourceArrays<T extends object>(obj1: object, obj2: object): T {
+  return deepMerge<T>(obj1, obj2, { arrayMerge: (_, source) => source })
+}
+
+/**
+ * Fully-featured deepMerge. Does not clone React components by default.
+ */
+export function deepMergeWithReactComponents<T extends object>(obj1: object, obj2: object): T {
+  return deepMerge<T>(obj1, obj2, {
+    isMergeableObject: isPlainObject,
+  })
 }

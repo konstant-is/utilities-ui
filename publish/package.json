@@ -1,7 +1,7 @@
 {
   "name": "@konstant/utilities-ui",
-  "description": "Common ui utilities",
   "version": "0.0.8",
+  "description": "Common ui utilities",
   "type": "module",
   "exports": {
     ".": {
@@ -24,17 +24,19 @@
     "build": "pnpm copyfiles && pnpm build:types && pnpm build:swc",
     "build:swc": "swc ./src -d ./dist --config-file .swcrc --strip-leading-paths",
     "build:types": "tsc --outDir dist --rootDir ./src",
+    "ci:version": "node scripts/ci-version.js",
     "clean": "rimraf {dist,*.tsbuildinfo}",
     "copyfiles": "copyfiles -u 1 \"src/**/*.{html,css,scss,ttf,woff,woff2,eot,svg,jpg,png,json}\" dist/",
-    "ci:version": "node scripts/ci-version.js",
     "tag": "node scripts/tag.js"
   },
-  "peerDependencies": {
-    "next": "^15",
-    "date-fns": "^4"
-  },
   "dependencies": {
+    "pino": "^9.6.0",
+    "pino-pretty": "^13.0.0",
     "qs-esm": "^7.0.2",
     "slugify": "^1.6.6"
+  },
+  "peerDependencies": {
+    "date-fns": "^4",
+    "next": "^15"
   }
 }

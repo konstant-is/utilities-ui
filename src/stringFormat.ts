@@ -1,19 +1,6 @@
 import * as s from 'slugify'
 
 /**
- * Capitalizes the first letter
- * @param str
- * @returns
- */
-export const capitalize = (str: string = ''): string => {
-  if (!str.length) {
-    return ''
-  }
-
-  return str.charAt(0).toUpperCase() + str.slice(1)
-}
-
-/**
  * Truncates a string to the specified length and adds an ellipsis.
  * @param str
  * @param length
@@ -36,3 +23,22 @@ export const contains = (str: string = '', search: string): boolean => {
 
 // Fallback for CommonJS or ESM default export
 export const slugify = s.default || s
+
+/**
+ * Capitalizes the first letter
+ * @param str
+ * @returns
+ */
+export const toCapitalized = (str: string = ''): string => {
+  if (!str.length) {
+    return ''
+  }
+
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
+export const toKebabCase = (string: string): string =>
+  string
+    .replace(/([a-z])([A-Z])/g, '$1-$2')
+    .replace(/\s+/g, '-')
+    .toLowerCase()
